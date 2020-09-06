@@ -1,12 +1,14 @@
 import { Router } from 'express';
 import { controllerHandler } from '../../middleware/ErrorHandler';
-import { defaultController } from './DefaultController';
+import { defaultController, generateToken } from './DefaultController';
+import { jwtFilter } from '../../middleware/Authenticate';
 
 
 const path = '/default';
 const router = Router();
 
-router.get('/',controllerHandler(defaultController));
+router.get('/', jwtFilter, controllerHandler(defaultController));
+router.get('/generateToken', controllerHandler(generateToken));
 
 
 // export
