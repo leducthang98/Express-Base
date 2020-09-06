@@ -5,7 +5,7 @@ const pool = mysql.createPool(CommonConfig.DATABASE_URL);
 
 export const query = async (sql, params) => {
     console.log('----------------------------');
-    console.log('sql', mysql.format(sql, params));
+    console.log('sql:', mysql.format(sql, params));
     console.log('----------------------------');
 
     return new Promise((resolve, reject) => {

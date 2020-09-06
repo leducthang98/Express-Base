@@ -24,5 +24,5 @@ expressApp.use(errorHandler)
 
 // run Express Server
 expressApp.listen(CommonConfig.PORT, () => {
-    console.log('server is running at port ', CommonConfig.PORT)
+    console.log('server is running at port',CommonConfig.PORT)
 });
