@@ -1,17 +1,7 @@
 import { commonResponse } from "../../constant/ResponseForm";
-
+import * as defaultDAl from './DefaultDAL';
 export const defaultController = async (req, res) => {
-    let data = [
-        {
-            name: 'default1',
-            value: 1
-        },
-        {
-            name: 'default2',
-            value: 2
-        }
-    ]
-
-    res.send(commonResponse(data));
+    const students = await defaultDAl.getStudent();
+    res.send(commonResponse(students));
 };
 

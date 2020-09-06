@@ -1,6 +1,7 @@
 import express from 'express';
 import { errorHandler } from './src/middleware/ErrorHandler';
 import routers from './src/components/router';
+import CommonConfig from './src/config/CommonConfig';
 const expressApp = express();
 
 // middleware
@@ -16,6 +17,6 @@ for (const router of routers) {
 expressApp.use(errorHandler)
 
 // run Express Server
-expressApp.listen(3001, () => {
-    console.log('server is running at port 3000')
+expressApp.listen(CommonConfig.PORT, () => {
+    console.log('server is running at port ', CommonConfig.PORT)
 });
