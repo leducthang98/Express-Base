@@ -6,8 +6,10 @@ import { jwtFilter } from '../../middleware/Authenticate';
 
 const path = '/default';
 const router = Router();
-
-router.get('/', jwtFilter, controllerHandler(defaultController));
+router.get('/', (req, res) => {
+    res.send('ok')
+})
+router.get('/students', jwtFilter, controllerHandler(defaultController));
 router.get('/generateToken', controllerHandler(generateToken));
 
 
