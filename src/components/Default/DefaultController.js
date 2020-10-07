@@ -4,6 +4,7 @@ import * as jwtUtil from '../../util/JwtUtils';
 import { TOKEN } from "../../constant/Token";
 import { ERRORS } from '../../constant/Errors';
 import { hash, compare } from '../../util/BcryptUtil';
+
 export const defaultController = async (req, res, next) => {
     let id = req.params.id
     let name = req.query.name

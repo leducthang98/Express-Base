@@ -1,6 +1,7 @@
 import { ERRORS } from "../constant/Errors";
 import * as jwtUtil from '../util/JwtUtils';
 
+// json-web-token filter
 export const jwtFilter = async (req, res, next) => {
     const { authorization } = req.headers;
     if (authorization && authorization.match(/^Bearer /g)) {

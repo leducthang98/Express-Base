@@ -1,5 +1,6 @@
 import { commonResponse } from "../constant/ResponseForm";
 
+// run controller inside this function
 export const controllerHandler = f => async (req, res, next) => {
   try {
     await f(req, res, next);
@@ -8,6 +9,7 @@ export const controllerHandler = f => async (req, res, next) => {
   }
 };
 
+// error handler
 export const errorHandler = (error, req, res, next) => {
   if (typeof error === 'string') {
     res.status(500);

@@ -1,6 +1,7 @@
 import mysql from 'mysql';
 import CommonConfig from '../config/CommonConfig';
 
+// create database
 const pool = mysql.createPool(CommonConfig.DATABASE_URL);
 
 export const query = async (sql, params) => {

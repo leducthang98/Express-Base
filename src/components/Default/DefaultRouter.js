@@ -6,9 +6,7 @@ import { jwtFilter } from '../../middleware/Authenticate';
 const path = '/default';
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.send('default')
-})
+router.get('/', (req, res) => { res.send('default') })
 
 router.get('/students/:id', jwtFilter, controllerHandler(defaultController));
 

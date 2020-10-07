@@ -4,29 +4,29 @@ import routers from './src/components/router';
 import CommonConfig from './src/config/CommonConfig';
 import { corsMiddleware } from './src/middleware/Cors';
 import bodyParser from 'body-parser';
-import router from './src/components/router';
+
+// initialize express
 const expressApp = express();
 
-// middleware
+// initialize system middleware
 expressApp.use(corsMiddleware);
-expressApp.use(bodyParser.json({ limit: '50mb' }));
+expressApp.use(bodyParser.json({
+  limit: '50mb'
+}));
 expressApp.use(bodyParser.urlencoded({
   extended: true,
   limit: '50mb',
 }));
 
-// routers
+// initialize routers
 for (const router of routers) {
   expressApp.use(router.path, router.router)
 }
 
-
-// error handle
+// add error handler
 expressApp.use(errorHandler)
-console.log('env:', process.env)
-// run Express Server
+
+// listen
 expressApp.listen(CommonConfig.PORT, () => {
   console.log('server is running at port', CommonConfig.PORT)
 });
-
-// localhost:3000/default/red
