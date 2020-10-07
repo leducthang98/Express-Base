@@ -7,7 +7,6 @@ export const query = async (sql, params) => {
     console.log('----------------------------');
     console.log('sql:', mysql.format(sql, params));
     console.log('----------------------------');
-
     return new Promise((resolve, reject) => {
         pool.query(sql, params, (error, results) => {
             if (error) {

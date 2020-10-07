@@ -10,3 +10,4 @@ export const compare = (text, encrypted) => new Promise((resolve, reject) => {
     return resolve(result);
   });
 });
+

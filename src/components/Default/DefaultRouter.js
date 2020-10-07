@@ -1,17 +1,22 @@
 import { Router } from 'express';
 import { controllerHandler } from '../../middleware/ErrorHandler';
-import { defaultController, generateToken } from './DefaultController';
+import { defaultController, generateToken, bcryptGenerator, bcryptComparator } from './DefaultController';
 import { jwtFilter } from '../../middleware/Authenticate';
-
 
 const path = '/default';
 const router = Router();
+
 router.get('/', (req, res) => {
-    res.send('ok')
+    res.send('default')
 })
-router.get('/students', jwtFilter, controllerHandler(defaultController));
+
+router.get('/students/:id', jwtFilter, controllerHandler(defaultController));
+
 router.get('/generateToken', controllerHandler(generateToken));
 
+router.get('/createBcrypt', controllerHandler(bcryptGenerator));
 
-// export
+router.get('/compareBcrypt', controllerHandler(bcryptComparator));
+
+
 export default { path, router };
